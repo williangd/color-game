@@ -15,13 +15,13 @@ init();
 function init() {
   setupModeButtons();
   setupSquares();
-  
+
   reset();
 }
 
-function setupModeButtons(){
-  for(var i =0; i < modeButtons.length; i++) {
-    modeButtons[i].addEventListener("click", function() {
+function setupModeButtons() {
+  for (var i = 0; i < modeButtons.length; i++) {
+    modeButtons[i].addEventListener("click", function () {
       modeButtons[0].classList.remove("selected");
       modeButtons[1].classList.remove("selected");
       this.classList.add("selected");
@@ -32,11 +32,11 @@ function setupModeButtons(){
 }
 
 function setupSquares() {
-  for(var i=0; i < squares.length; i++) {
-    squares[i].addEventListener("click", function() {
+  for (var i = 0; i < squares.length; i++) {
+    squares[i].addEventListener("click", function () {
       var clickedColor = this.style.backgroundColor;
-      if(clickedColor === pickedColor) {
-        messageDisplay.textContent =  'Correct!';
+      if (clickedColor === pickedColor) {
+        messageDisplay.textContent = 'Correct!';
         changeColors(clickedColor);
         h1.style.background = clickedColor;
         resetButton.textContent = "Play Again?";
@@ -52,8 +52,8 @@ function reset() {
   colors = generateRandomColors(mode);
   pickedColor = pickColor();
   colorDisplay.textContent = pickedColor;
-  for(var i=0; i < squares.length; i++) {
-    if(colors[i]) {
+  for (var i = 0; i < squares.length; i++) {
+    if (colors[i]) {
       squares[i].style.background = colors[i];
       squares[i].style.display = "block";
     } else {
@@ -65,12 +65,12 @@ function reset() {
   resetButton.textContent = "New colors";
 };
 
-resetButton.addEventListener("click", function() {
+resetButton.addEventListener("click", function () {
   reset();
 })
 
 function changeColors(color) {
-  for(var i=0; i < squares.length; i++) {
+  for (var i = 0; i < squares.length; i++) {
     squares[i].style.background = color;
   }
 }
@@ -82,7 +82,7 @@ function pickColor() {
 
 function generateRandomColors(number) {
   var colors = [];
-  for(var i =0; i < number; i++) {
+  for (var i = 0; i < number; i++) {
     colors.push(randomColor());
   }
   return colors;
